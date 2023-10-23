@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<nav id="menu" th:fragment="menu" class="navbar navbar-expand-lg bg-primary">
+<nav id="menu" th:fragment="menu" class="navbar navbar-expand-lg bg-primary" style="background-color: #b9efa2;">
     <div  class="container-fluid">
-        <i class="bi bi-xbox text-white" style="font-size: 2rem;"></i>
-        <span class="navbar-brand ms-1 mb-0 h1 text-white">WEB SHOP</span>
+        <i class="bi bi-shop" style="font-size: 2rem;"></i>
+        <span class="navbar-brand ms-1 mb-0 h1 text-white">WEB SHOP FRUITS</span>
         <!-- Menu toggle button for small-screen  -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
                 aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-list text-white"></i>
+            <i class="bi bi-list-check"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -16,10 +16,7 @@
                     <a class="nav-link text-white" th:href="@{./}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" th:href="@{./t-shirts}">T-Shirts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" th:href="@{./caps}">Caps</a>
+                    <a class="nav-link text-white" th:href="@{./fruits}">Fruits</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" th:href="@{./contacts}">Contacts</a>
