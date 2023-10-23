@@ -21,8 +21,7 @@ public class UserFruitService {
         List<Fruit> list =
                 StreamSupport.stream(iterable.spliterator(), false)
                         .map(fruit -> new Fruit(fruit.getId(),
-                                Constants.BASE_URL +
-                                        Constants.URL_IMAGES_UPLOADS + fruit.getImg(),
+                                fruit.getImg(),
                                 fruit.getName(),
                                 fruit.getArticle(),
                                 fruit.getDescr(),
