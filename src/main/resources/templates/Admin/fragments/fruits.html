@@ -3,7 +3,7 @@
 See: https://stackoverflow.com/questions/38730992/thymleaf-for-spring-in-intellij-uri-is-not-registered -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="t_shirts" class="container justify-content-center mt-3 mb-3">
+<div th:fragment="fruits" class="container justify-content-center mt-3 mb-3">
     <div class="container-sm">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addModal">
@@ -12,12 +12,12 @@ See: https://stackoverflow.com/questions/38730992/thymleaf-for-spring-in-intelli
     </div>
     <div class="container-sm">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
-            <div class="card" th:each="fruit:${tShirts}">
+            <div class="card" th:each="fruit:${fruits}">
                 <div class="btn-group btn-group-sm mb-1" role="group">
                     <button type="button" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-warning">Update</button>
                 </div>
-                <img id="imgee" th:src="@{${fruit.img}}" class="card-img-top p-1 m-1" alt="t-shirt-img">
+                <img id="imgee" th:src="@{${uploads}+${fruit.img}}" class="card-img-top p-1 m-1" alt="fruit-img">
                 <div class="card-body">
                     <p>
                         <span id="idee" class="card-text visually-hidden" th:text="${fruit.id}"></span><br>

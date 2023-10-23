@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<!-- Modal Create Cap-->
-<div th:fragment="modal-create-cap" class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+<!-- Modal Create Fruit-->
+<div th:fragment="modal-create-fruit" class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="modalFormCreateCap" method='post' th:action="@{/admin/create-cap}" enctype="multipart/form-data">
+                <form id="modalFormCreateFruit" method='post' th:action="@{/admin/create-fruit}" enctype="multipart/form-data">
                     <div class="mb-2">
                         <label for="nameInputAdd" class="form-label" style="font-size: 12px;">Name</label>
                         <input type="text" class="form-control" id="nameInputAdd" placeholder="Name...">
@@ -42,6 +42,6 @@
         </div>
     </div>
 </div>
-<!-- End Modal Create Cap-->
+<!-- End Modal Create Fruit-->
 </body>
 </html>
