@@ -27,30 +27,20 @@ public class AdminController {
     @Autowired
     AdminFruitService adminFruitService;
     @Autowired
-    AdminCapService adminCapService;
-    @Autowired
     AdminOrderService adminOrderService;
 
     @GetMapping
     public String getHome(Model model) {
-        model.addAttribute("title", "Web Shop");
+        model.addAttribute("title", "Web Shop Fruits");
         model.addAttribute("fragmentName", "home");
         return "Admin/layout";
     }
 
-    @GetMapping("/t-shirts")
+    @GetMapping("/fruits")
     public String getTShirts(Model model) {
-        model.addAttribute("title", "T-Shirts");
-        model.addAttribute("tShirts", adminFruitService.getAll());
-        model.addAttribute("fragmentName", "t_shirts");
-        return "Admin/layout";
-    }
-
-    @GetMapping("/caps")
-    public String getCaps(Model model) {
-        model.addAttribute("title", "Caps");
-        model.addAttribute("caps", adminCapService.getAll());
-        model.addAttribute("fragmentName", "caps");
+        model.addAttribute("title", "fruits");
+        model.addAttribute("fruits", adminFruitService.getAll());
+        model.addAttribute("fragmentName", "fruits");
         return "Admin/layout";
     }
 
@@ -62,21 +52,21 @@ public class AdminController {
         return "Admin/layout";
     }
 
-    @PostMapping("/create-cap")
-    public ResponseEntity<?> createCap(
-            @RequestParam("capName") String capName,
-            @RequestParam("capArt") String capArt,
-            @RequestParam("capDescr") String capDescr,
-            @RequestParam("capPrice") String capPrice,
-            @RequestParam("capFile") MultipartFile capFile ) {
-        String fileName = capFile.getOriginalFilename();
-        String[] data = new String[]{capName, capArt, capDescr,
-                capPrice, fileName};
+    @PostMapping("/create-fruit")
+    public ResponseEntity<?> createFruit(
+            @RequestParam("fruitName") String fruitName,
+            @RequestParam("fruitArt") String fruitArt,
+            @RequestParam("fruitDescr") String fruitDescr,
+            @RequestParam("fruitPrice") String fruitPrice,
+            @RequestParam("fruitFile") MultipartFile fruitFile ) {
+        String fileName = fruitFile.getOriginalFilename();
+        String[] data = new String[]{fruitName, fruitArt, fruitDescr,
+                fruitPrice, fileName};
         // Check data in logs
-        LOGGER.info("Admin add cap data: " + Arrays.toString(data));
+        LOGGER.info("Admin add fruit data: " + Arrays.toString(data));
         ResponseEntity<?> response;
         try {
-            response = adminCapService.addCap(data, capFile);
+            response = adminFruitService.addFruit(data, fruitFile);
         } catch (Exception e) {
             return new ResponseEntity<>(new ResponseMessage(false,
                     "Error :("), HttpStatus.INTERNAL_SERVER_ERROR);
