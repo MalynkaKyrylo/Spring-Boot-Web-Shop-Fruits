@@ -2,6 +2,7 @@ package com.example.app.SpringBootWebShop.controller;
 
 import com.example.app.SpringBootWebShop.service.User.UserOrderService;
 import com.example.app.SpringBootWebShop.service.User.UserFruitService;
+import com.example.app.SpringBootWebShop.utils.Constants;
 import com.example.app.SpringBootWebShop.utils.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,8 +35,9 @@ public class UserController {
     }
 
     @GetMapping("/fruits")
-    public String getTShirts(Model model) {
-        model.addAttribute("title", "fruits");
+    public String getFruits(Model model) {
+        model.addAttribute("title", "Fruits");
+        model.addAttribute("uploads", Constants.URL_GET_UPLOADS);
         model.addAttribute("fruits", userFruitService.getAll());
         model.addAttribute("fragmentName", "fruits");
         return "User/layout";
