@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- WARNING: URI is not registered (Settings | Languages & Frameworks | Schemas and DTDs)
+See: https://stackoverflow.com/questions/38730992/thymleaf-for-spring-in-intellij-uri-is-not-registered -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="t_shirts" class="container justify-content-center mt-3 mb-3">
+    <div class="container-sm">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addModal">
+            Add new item
+        </button>
+    </div>
+    <div class="container-sm">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+            <div class="card" th:each="fruit:${tShirts}">
+                <div class="btn-group btn-group-sm mb-1" role="group">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-warning">Update</button>
+                </div>
+                <img id="imgee" th:src="@{${fruit.img}}" class="card-img-top p-1 m-1" alt="t-shirt-img">
+                <div class="card-body">
+                    <p>
+                        <span id="idee" class="card-text visually-hidden" th:text="${fruit.id}"></span><br>
+                        <span id="namee" class="card-text fw-bold" th:text="${fruit.name}"></span><br>
+                        <span id="articlee" class="fw-lighter" style="font-size: 12px;" th:text="${fruit.article}"></span><br>
+                        <span id="descript" class="card-text" th:text="${fruit.descr}"></span><br>
+                        <span>&#8364; </span> <!-- <- HTML EUR--->
+                        <span id="pricee" class="card-text" th:text="${fruit.price}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Add -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 id="addModalLabel" class="modal-title fs-5 text-primary" >Add new item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label for="nameInputAdd" class="form-label" style="font-size: 12px;">Name</label>
+                        <input type="text" class="form-control" id="nameInputAdd" placeholder="Name...">
+                    </div>
+                    <div class="mb-2">
+                        <label for="artInputAdd" class="form-label" style="font-size: 12px;">Article</label>
+                        <input type="text" class="form-control" id="artInputAdd" placeholder="Article...">
+                    </div>
+                    <div class="mb-2">
+                        <label for="descrTextareaAdd" class="form-label" style="font-size: 12px;">Description</label>
+                        <textarea class="form-control" id="descrTextareaAdd" rows="2"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="priceInputAdd" class="form-label" style="font-size: 12px;">Price</label>
+                        <input type="text" class="form-control" id="priceInputAdd" placeholder="Price...">
+                    </div>
+                    <div class="mb-2">
+                        <input class="form-control" type="file" id="formFileAdd">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal Add-->
+</div>
+</body>
+</html>
