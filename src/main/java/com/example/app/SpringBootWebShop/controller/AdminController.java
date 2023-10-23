@@ -2,16 +2,14 @@ package com.example.app.SpringBootWebShop.controller;
 
 import com.example.app.SpringBootWebShop.service.Admin.AdminOrderService;
 import com.example.app.SpringBootWebShop.service.Admin.AdminFruitService;
+import com.example.app.SpringBootWebShop.utils.Constants;
 import com.example.app.SpringBootWebShop.utils.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Arrays;
@@ -31,14 +29,15 @@ public class AdminController {
 
     @GetMapping
     public String getHome(Model model) {
-        model.addAttribute("title", "Web Shop Fruits");
+        model.addAttribute("title", "Admin Web Shop Fruits");
         model.addAttribute("fragmentName", "home");
         return "Admin/layout";
     }
 
     @GetMapping("/fruits")
-    public String getTShirts(Model model) {
-        model.addAttribute("title", "fruits");
+    public String getFruits(Model model) {
+        model.addAttribute("title", "Fruits");
+        model.addAttribute("uploads", Constants.URL_GET_UPLOADS);
         model.addAttribute("fruits", adminFruitService.getAll());
         model.addAttribute("fragmentName", "fruits");
         return "Admin/layout";
@@ -72,5 +71,17 @@ public class AdminController {
                     "Error :("), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return response;
+    }
+
+    // TODO develop
+    @PutMapping("/update-fruit")
+    public ResponseEntity<?> updateFruit() {
+        return null;
+    }
+
+    // TODO develop
+    @DeleteMapping("/delete-fruit")
+    public ResponseEntity<?> deleteFruit() {
+        return null;
     }
 }
