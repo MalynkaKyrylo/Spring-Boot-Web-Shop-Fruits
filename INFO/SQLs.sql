@@ -24,9 +24,12 @@ CREATE TABLE IF NOT EXISTS orders
 INSERT INTO
  fruits (img, name, article, description, price)
 VALUES
- ('t-shirt-orange.jpg', 'T-shirt orange', 'TSO3214', 'Lorem ipsum orange', 27.95),
- ('t-shirt-blue.jpg', 'T-shirt blue', 'TSB3255', 'Lorem ipsum blue', 25.95),
- ('t-shirt-green.jpg', 'T-shirt green', 'TSG3209', 'Lorem ipsum green', 19.99),
- ('t-shirt-black.jpg', 'T-shirt black', 'TSB3200', 'Lorem ipsum black', 19.99),
- ('t-shirt-yellow.jpg', 'T-shirt yellow', 'TSY3222', 'Lorem ipsum yellow', 20.95);
+ ('apple.jpg', 'Apples', 'frt-0001', 'Apples Ukraine Honey Crisp', 1.50),
+ ('banana.jpg', 'Bananas', 'frt-0002', 'Bananas Brazil', 0.75),
+ ('grapefruit.jpg', 'Grapefruits', 'frt-0003', 'Grapefruits Caribbeans', 2.50),
+ ('mango.jpg', 'Mangoes', 'frt-0004', 'Mangoes Egypt', 3.00),
+ ('oranges.jpg', 'Oranges', 'frt-0005', 'Oranges Spain', 2.20),
+ ('pineapples.jpg', 'Pineapples', 'frt-0006', 'Pineapples Costa-Rica', 4.50),
+ ('pomegranate.jpg', 'Pomegranate', 'frt-0007', 'Pomegranate Georgia', 2.10),
+ ('white_grape.jpg', 'White Grape', 'frt-0008', 'White Grape Ukraine', 1.20);
 
