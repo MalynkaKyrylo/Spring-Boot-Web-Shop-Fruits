@@ -7,11 +7,11 @@ $(function() {
 		$('#addModalSpinner').show();
 
         let formData = new FormData();
-		formData.append('capName', $('input[id=nameInputAdd]').val());
-		formData.append('capArt', $('input[id=artInputAdd]').val());
-		formData.append('capDescr', $('textarea[id=descrTextareaAdd]').val());
-		formData.append('capPrice', $('input[id=priceInputAdd]').val());
-		formData.append('capFile', $('input[id=formFileAdd]')[0].files[0]);
+		formData.append('fruitName', $('input[id=nameInputAdd]').val());
+		formData.append('fruitArt', $('input[id=artInputAdd]').val());
+		formData.append('fruitDescr', $('textarea[id=descrTextareaAdd]').val());
+		formData.append('fruitPrice', $('input[id=priceInputAdd]').val());
+		formData.append('fruitFile', $('input[id=formFileAdd]')[0].files[0]);
 
         $.ajax({
             type: 'POST',
@@ -19,7 +19,7 @@ $(function() {
 			dataType: 'json',
 			contentType: false,
 			processData: false,
-			url: '/admin/create-cap',
+			url: '/admin/create-fruit',
 			data: formData
         })
         .done(function(response) {
@@ -43,7 +43,7 @@ $(function() {
     });
 
     $('#addModalBtnClear').click(function(e) {
-        $('#modalFormCreateCap')[0].reset();
+        $('#modalFormCreateFruit')[0].reset();
         $('#addModalResponse').html('');
         location.reload();
     });
