@@ -24,30 +24,20 @@ public class UserController {
     @Autowired
     UserFruitService userFruitService;
     @Autowired
-    UserCapService userCapService;
-    @Autowired
     UserOrderService userOrderService;
 
     @GetMapping("/")
     public String getHome(Model model) {
-        model.addAttribute("title", "Web Shop");
+        model.addAttribute("title", "Web Shop Fruits");
         model.addAttribute("fragmentName", "home");
         return "User/layout";
     }
 
-    @GetMapping("/t-shirts")
+    @GetMapping("/fruits")
     public String getTShirts(Model model) {
-        model.addAttribute("title", "T-Shirts");
-        model.addAttribute("tShirts", userFruitService.getAll());
-        model.addAttribute("fragmentName", "t_shirts");
-        return "User/layout";
-    }
-
-    @GetMapping("/caps")
-    public String getCaps(Model model) {
-        model.addAttribute("title", "Caps");
-        model.addAttribute("caps", userCapService.getAll());
-        model.addAttribute("fragmentName", "caps");
+        model.addAttribute("title", "fruits");
+        model.addAttribute("fruits", userFruitService.getAll());
+        model.addAttribute("fragmentName", "fruits");
         return "User/layout";
     }
 
